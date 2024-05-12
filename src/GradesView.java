@@ -53,7 +53,7 @@ public class GradesView extends JFrame {
 		
 		
 		saveButton.addActionListener(new SaveButtonListener(model));
-		loadButton.addActionListener(null); // FIXME create and add action listener
+		loadButton.addActionListener(new LoadButtonListener(model)); 
 		
 		buttonPanel.add(calculateGrade);
 		buttonPanel.add(saveButton);
