@@ -6,9 +6,11 @@ import javax.swing.JButton;
 public class CalculateGradeButtonListener implements ActionListener {
 
 	private GradesModel model;
+	private GradesView view;
 
-	public CalculateGradeButtonListener(GradesModel model) {
+	public CalculateGradeButtonListener(GradesModel model, GradesView view) {
 		this.model = model;
+		this.view = view;
 
 	}
 	
@@ -16,7 +18,7 @@ public class CalculateGradeButtonListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Call calculate grade method
 		// model.calculateGrade();
-		System.out.println(model.calculateGrade());
+		view.updateUI(model.calculateGrade());
 
 	}
 

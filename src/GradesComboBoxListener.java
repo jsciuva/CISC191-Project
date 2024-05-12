@@ -20,10 +20,11 @@ public class GradesComboBoxListener implements ActionListener {
 		// proficiency level
 		// i.e. call setProficiencyLevel()
 		// the action listener needs to be able to access the ProficiencyLevel set
+		// it is okay to create a new ProficiencyLevel each time one is selected from box
+		
 		// TODO set title of ProficiencyLevel
-		// Question: Is it okay to cast to String like this???
-		String state = (String)box.getItemAt(box.getSelectedIndex());
-		objective.setLevel(state);
+		// String state = (String)box.getItemAt(box.getSelectedIndex());
+		objective.setLevel(box.getSelectedIndex());
 		
 		
 
