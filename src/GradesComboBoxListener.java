@@ -25,9 +25,6 @@ public class GradesComboBoxListener implements ActionListener {
 		// TODO set title of ProficiencyLevel
 		// String state = (String)box.getItemAt(box.getSelectedIndex());
 		objective.setLevel(box.getSelectedIndex());
-		
-		
-
 	}
-
+	
 }

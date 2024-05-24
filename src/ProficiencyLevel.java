@@ -2,20 +2,24 @@ import java.util.Hashtable;
 
 public class ProficiencyLevel {
 
-	// private final int score;
 	private final String title; // a ProficiencyLevel has-a title
-	// private final boolean inProgress;
 	
 	public static final String[] TITLES = {"In-Progress", "No Evidence", "Intern", "Junior", "Middle", "Senior"};
 	
-	
 	public static Hashtable<String, ProficiencyLevel> proficiencyLevelTable = new Hashtable<String, ProficiencyLevel>();
 	
-	// private to ensure... WHAT?
+	static {
+		for (int i=0; i < TITLES.length; ++i) {
+			proficiencyLevelTable.put(TITLES[i], new ProficiencyLevel(i));
+		}
+	}
+	
 	public ProficiencyLevel(int index) {
-		//this.score = scoreTable.get(title);
 		this.title = TITLES[index];
-		//inProgress = score < 0;
+	}
+	
+	public ProficiencyLevel(String title) {
+		this.title = title;
 	}
 	
 	public static ProficiencyLevel getProficiencyLevelForTitle(String title) {
@@ -35,20 +39,11 @@ public class ProficiencyLevel {
 		}
 		return index;
 	}
-	
-//	public int getScore() {
-//		return score;
-//	}
 
 	public String getTitle() {
 		return title;
 	}
 	
-//	public boolean isInProgress() {
-//		return inProgress;
-//	}
-	
-//	public void setLevel(String) {
-//	}
+
 	
 }

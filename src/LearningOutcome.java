@@ -2,10 +2,13 @@
 public class LearningOutcome {
 
 	private String title; // a LearningOutcome has-a title
-	// a LearningOutcome has-a ProficiencyLevel
-	// private ProficiencyLevel level = ProficiencyLevel.getProficiencyLevelForTitle("In-Progress");
 	
-	private ProficiencyLevel level = new ProficiencyLevel(0);
+	// NOTE: there are two implementations here, one which uses an index and one
+	// which uses a String. If I had more time I would clean this up and use just one
+	// throughout the program, but as it is now, there are places where one is implemented
+	// or the other.
+	private ProficiencyLevel level = ProficiencyLevel.getProficiencyLevelForTitle("In-Progress");
+	// private ProficiencyLevel level = new ProficiencyLevel(0);
 	
 	public LearningOutcome(String title) {
 		this.title = title;
@@ -17,7 +20,10 @@ public class LearningOutcome {
 
 	public void setLevel(int index) {
 		this.level = new ProficiencyLevel(index);
-		// this.level = ProficiencyLevel.getProficiencyLevelForTitle(title);
+	}
+	
+	public void setLevel(String title) {
+		this.level = ProficiencyLevel.getProficiencyLevelForTitle(title);
 	}
 
 	public String getTitle() {
@@ -31,7 +37,5 @@ public class LearningOutcome {
 	public String toString() {
 		return title + " " + level;
 	}
-	
-	
 	
 }

@@ -16,9 +16,7 @@ public class CalculateGradeButtonListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Call calculate grade method
-		// model.calculateGrade();
-		view.updateUI(model.calculateGrade());
+		view.displayGrade(model.calculateGrade());
 
 	}
 

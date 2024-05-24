@@ -1,4 +1,5 @@
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class GradesModel {
 
@@ -41,13 +42,11 @@ public class GradesModel {
 		return message;
 	}
 
-	// caclulates the students grade based on the number of completed LOs
+	// calculates the students grade based on the number of completed LOs
 	// (not "In-Progress")
 	public String calculateGrade() {
-
 		String gradeString = "N/A"; // Default grade is "N/A" (all LO's
 									// In-Progress)
-
 		// determine how many objectives have been completed
 		// by counting all non In-Progress level titles
 		int completedObjectives = 0;
@@ -62,12 +61,10 @@ public class GradesModel {
 				++completedObjectives;
 			}
 		}
-
 		if (completedObjectives == 0) {
 			// all LO's are In-Progress, return "N/A"
 			return gradeString;
 		}
-
 		// proficiencyLevelCount is the sum of the occurrences of the
 		// proficiency level at TITLES[i] plus the sum of higher levels
 		int proficiencyLevelCount = 0;
@@ -118,14 +115,15 @@ public class GradesModel {
 		GradeIO.writeGrade(fileName, gradeString);
 	}
 	
-	public String loadGrade() {
-		System.out.println(GradeIO.readGrade(fileName));
-		return "";
+	public void loadGrade() {
+		// load the grades from the file 
+		Scanner scanner = new Scanner(GradeIO.readGrade(fileName));
+		int objectiveNumber = 0;
+		while (scanner.hasNextLine()) {
+			String level = scanner.nextLine();
+			learningOutcomes[objectiveNumber].setLevel(level);
+			objectiveNumber++;
+		}
 	}
-
-//	// TODO Add method for view to set level
-//	public void setLevel() {
-//
-//	}
 
 }
